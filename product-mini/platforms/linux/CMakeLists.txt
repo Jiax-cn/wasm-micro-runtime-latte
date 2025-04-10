@@ -91,6 +91,10 @@ if (NOT DEFINED WAMR_BUILD_LIB_WASI_THREADS)
   set (WAMR_BUILD_LIB_WASI_THREADS 0)
 endif()
 
+if (WASM_ENABLE_LOAD_CUSTOM_SECTION EQUAL 1)
+  # Enable Custom sections by default
+  add_definitions(-DWASM_ENABLE_LOAD_CUSTOM_SECTION=1)
+endif ()
 
 if (NOT DEFINED WAMR_BUILD_MINI_LOADER)
   # Disable wasm mini loader by default

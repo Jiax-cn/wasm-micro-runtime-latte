@@ -28,6 +28,10 @@ if (NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif ()
 
+if (WASM_ENABLE_LOAD_CUSTOM_SECTION EQUAL 1)
+  add_definitions(-DWASM_ENABLE_LOAD_CUSTOM_SECTION=1)
+endif ()
+
 if (NOT DEFINED WAMR_BUILD_INTERP)
   # Enable Interpreter by default
   set (WAMR_BUILD_INTERP 1)

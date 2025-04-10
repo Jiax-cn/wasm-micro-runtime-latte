@@ -1438,6 +1438,14 @@ wasm_runtime_get_custom_section(wasm_module_t const module_comm,
                                 const char *name, uint32_t *len);
 
 
+/* Get latte index of the current exec_env */
+WASM_RUNTIME_API_EXTERN uint32_t
+wasm_runtime_get_latte_index(wasm_module_t const module_comm);
+
+/* Set latte index of the current exec_env */
+WASM_RUNTIME_API_EXTERN void
+wasm_runtime_set_latte_index(wasm_module_t const module_comm, uint32_t index);
+
 /**
  * Get WAMR semantic version
  */

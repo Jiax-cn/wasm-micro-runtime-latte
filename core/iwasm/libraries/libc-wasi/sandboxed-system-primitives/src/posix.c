@@ -1387,6 +1387,26 @@ wasmtime_ssp_fd_write(wasm_exec_env_t exec_env, struct fd_table *curfds,
                       __wasi_fd_t fd, const __wasi_ciovec_t *iov, size_t iovcnt,
                       size_t *nwritten)
 {
+#if defined (BH_PLATFORM_PENGLAI)
+    ssize_t penglai_len = 0;
+    if (fd == 1 || fd == 2) {
+        int i;
+        const __wasi_ciovec_t *iov1 = iov;
+        for (i = 0; i < (int)iovcnt; i++, iov1++) {
+            if (iov1->buf_len > 0 && iov1->buf != NULL) {
+                if (fd == 1) {
+                    os_printf("%s", iov1->buf);
+                } else {
+                    os_printf("stderr: %s", iov1->buf);
+                }
+                penglai_len += iov1->buf_len;
+            }
+        }
+    }
+    *nwritten = penglai_len;
+    return 0;
+#endif
+
     struct fd_object *fo;
     __wasi_errno_t error =
         fd_object_get(curfds, &fo, fd, __WASI_RIGHT_FD_WRITE, 0);

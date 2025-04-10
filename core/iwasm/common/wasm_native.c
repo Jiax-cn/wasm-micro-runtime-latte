@@ -83,6 +83,9 @@ get_libc_emcc_export_apis(NativeSymbol **p_libc_emcc_apis);
 uint32
 get_lib_rats_export_apis(NativeSymbol **p_lib_rats_apis);
 
+uint32
+get_lib_latte_export_apis(NativeSymbol **p_lib_portmr_apis);
+
 static bool
 compare_type_with_signautre(uint8 type, const char signature)
 {
@@ -655,6 +658,11 @@ wasm_native_init()
                                       n_native_symbols))
         goto fail;
 #endif
+
+    n_native_symbols = get_lib_latte_export_apis(&native_symbols);
+    if (!wasm_native_register_natives("latte", native_symbols,
+                                      n_native_symbols))
+        goto fail;
 
     return true;
 #if WASM_ENABLE_SPEC_TEST != 0 || WASM_ENABLE_LIBC_BUILTIN != 0     \

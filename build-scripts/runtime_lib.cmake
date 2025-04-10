@@ -145,6 +145,8 @@ if (WAMR_BUILD_LIB_RATS EQUAL 1)
     include (${IWASM_DIR}/libraries/lib-rats/lib_rats.cmake)
 endif ()
 
+include (${IWASM_DIR}/libraries/lib-latte/lib_latte.cmake)
+
 if (WAMR_BUILD_WASM_CACHE EQUAL 1)
     include (${WAMR_ROOT_DIR}/build-scripts/involve_boringssl.cmake)
 endif ()
@@ -193,6 +195,7 @@ set (source_all
     ${THREAD_MGR_SOURCE}
     ${LIBC_EMCC_SOURCE}
     ${LIB_RATS_SOURCE}
+    ${LIB_LATTE_SOURCE}
     ${DEBUG_ENGINE_SOURCE}
 )
 

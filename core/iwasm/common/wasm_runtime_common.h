@@ -767,6 +767,12 @@ WASM_RUNTIME_API_EXTERN const uint8 *
 wasm_runtime_get_custom_section(WASMModuleCommon *const module_comm,
                                 const char *name, uint32 *len);
 
+WASM_RUNTIME_API_EXTERN uint32
+wasm_runtime_get_latte_index(WASMModuleCommon *const module_comm);
+
+WASM_RUNTIME_API_EXTERN void
+wasm_runtime_set_latte_index(WASMModuleCommon *const module_comm, uint32 index);
+
 #if WASM_ENABLE_MULTI_MODULE != 0
 WASM_RUNTIME_API_EXTERN void
 wasm_runtime_set_module_reader(const module_reader reader,

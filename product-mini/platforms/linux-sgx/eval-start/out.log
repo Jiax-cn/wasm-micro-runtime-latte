@@ -1,0 +1,62 @@
+[  2%] Built target vmlib_untrusted
+[100%] Built target vmlib
+GEN  =>  Enclave/Enclave_t.c
+CC   <=  Enclave/Enclave_t.c
+LINK =>  enclave.so
+<!-- Please refer to User's Guide for the explanation of each field -->
+<EnclaveConfiguration>
+    <ProdID>0</ProdID>
+    <ISVSVN>0</ISVSVN>
+    <StackMaxSize>0x100000</StackMaxSize>
+    <HeapMaxSize>0x8000000</HeapMaxSize>
+    <ReservedMemMaxSize>0x1000000</ReservedMemMaxSize>
+    <ReservedMemExecutable>1</ReservedMemExecutable>
+    <TCSNum>10</TCSNum>
+    <TCSPolicy>1</TCSPolicy>
+    <DisableDebug>0</DisableDebug>
+    <MiscSelect>0</MiscSelect>
+    <MiscMask>0xFFFFFFFF</MiscMask>
+</EnclaveConfiguration>
+wasm section offset: 663552
+0x00, 0xb9, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 
+0x5c, 0x12, 0x26, 0xe4, 0x5a, 0x69, 0xa1, 0x27, 0xc9, 0x94, 0x8c, 0xbf, 0x92, 0x3b, 0x9d, 0x55, 
+0x79, 0x7a, 0x83, 0x7e, 0x63, 0x16, 0x4c, 0x2f, 0xfe, 0x06, 0x20, 0x05, 0x7e, 0x35, 0x6e, 0x68, 
+
+Writing to file sgx_rt_mr.bin .
+GEN =>  sgx_rt_mr.bin
+~/Desktop/wasm_workspace/portmr/tools/latte_builder ~/Desktop/repos/wasm-micro-runtime/product-mini/platforms/linux-sgx/eval-start
+output portid section: 
+00 57 06 70 6f 72 74 69 64 e0 56 03 00 00 00 00 
+00 44 0a 61 f7 6b b1 56 01 9c d8 20 88 48 4a ed 
+ad 57 c8 37 50 86 66 dd 7c 2a 66 e5 79 0b 5c b1 
+c3 e0 56 03 00 00 00 00 00 44 0a 61 f7 6b b1 56 
+01 9c d8 20 88 48 4a ed ad 57 c8 37 50 86 66 dd 
+7c 2a 66 e5 79 0b 5c b1 c3 
+
+portid of helloworld.wasm:
+ad 02 aa ac 39 80 e9 a1 49 7f 91 fc 2e ce 7c 84 
+e8 25 47 97 86 15 77 99 ae 4f 75 a5 ef 04 0b 2f 
+
+portid of helloworld.wasm:
+ad 02 aa ac 39 80 e9 a1 49 7f 91 fc 2e ce 7c 84 
+e8 25 47 97 86 15 77 99 ae 4f 75 a5 ef 04 0b 2f 
+
+application helloworld.wasm's measurement:
+sgx:  00 db d1 86 55 2e 1b cd 5a 29 d0 82 ee d1 dd df 
+41 29 4c 15 ab 98 bb 8a f0 54 6f 2b 6b 87 9b b7 
+
+penglai:  f6 a4 68 27 14 11 ea 19 69 89 dd e4 35 f5 b9 6a 
+99 67 6d 15 ae aa 0f 56 1c 64 9c 35 4d 18 c2 b8 
+
+application helloworld.wasm's measurement:
+sgx:  00 db d1 86 55 2e 1b cd 5a 29 d0 82 ee d1 dd df 
+41 29 4c 15 ab 98 bb 8a f0 54 6f 2b 6b 87 9b b7 
+
+penglai:  f6 a4 68 27 14 11 ea 19 69 89 dd e4 35 f5 b9 6a 
+99 67 6d 15 ae aa 0f 56 1c 64 9c 35 4d 18 c2 b8 
+
+~/Desktop/repos/wasm-micro-runtime/product-mini/platforms/linux-sgx/eval-start
+GEN  =>  App/Enclave_u.c
+CC   <=  App/Enclave_u.c
+LINK =>  iwasm
+GEN  =>  Enclave/Enclave_t.c

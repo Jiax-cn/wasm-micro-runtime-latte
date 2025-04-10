@@ -2977,7 +2977,7 @@ wasm_runtime_init_wasi(WASMModuleInstanceCommon *module_inst,
         goto fail;
     }
     addr_pool_inited = true;
-
+#if !defined (BH_PLATFORM_PENGLAI) 
     /* Prepopulate curfds with stdin, stdout, and stderr file descriptors.
      *
      * If -1 is given, use STDIN_FILENO (0), STDOUT_FILENO (1),
@@ -2991,6 +2991,7 @@ wasm_runtime_init_wasi(WASMModuleInstanceCommon *module_inst,
                       "Init wasi environment failed: init fd table failed");
         goto fail;
     }
+#endif
 
     wasm_fd = 3;
     for (i = 0; i < dir_count; i++, wasm_fd++) {
@@ -3391,6 +3392,19 @@ wasm_runtime_get_custom_section(WASMModuleCommon *const module_comm,
     return NULL;
 }
 #endif /* end of WASM_ENABLE_LOAD_CUSTOM_SECTION != 0 */
+
+uint32
+wasm_runtime_get_latte_index(WASMModuleCommon *const module_comm)
+{
+    return ((WASMModule *)module_comm)->latte_index;
+}
+
+void
+wasm_runtime_set_latte_index(WASMModuleCommon *const module_comm, uint32 index)
+{
+    ((WASMModule *)module_comm)->latte_index = index;
+    return;
+}
 
 static union {
     int a;

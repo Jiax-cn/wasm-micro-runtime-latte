@@ -606,6 +606,9 @@ struct WASMModule {
        functions in that group */
     uint32 fast_jit_ready_groups;
 #endif
+
+    // latte
+    uint32 latte_index;
 };
 
 typedef struct BlockType {
