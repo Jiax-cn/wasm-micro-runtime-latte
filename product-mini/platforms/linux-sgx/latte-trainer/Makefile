@@ -1,8 +1,6 @@
 # Copyright (C) 2019 Intel Corporation.  All rights reserved.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
-LATTE_DIR := /home/jiax/Desktop/wasm_workspace/portmr
-
 ######## SGX SDK Settings ########
 
 SGX_SDK ?= /opt/intel/sgxsdk

@@ -152,7 +152,7 @@ latte_verify_msg(wasm_exec_env_t exec_env, latte_attest_msg *msg)
         return -1;
     }
 
-    portid_sec = encode_portid_section((uint8_t *)portid_data, portid_data_size, &portid_sec_size);
+    portid_sec = serialize_portid_section((uint8_t *)portid_data, portid_data_size, &portid_sec_size);
 
     derive_portid(*(portid_state_t *)(portid_data + (msg->latte_index) * sizeof(portid_state_t)), portid_sec, portid_sec_size, ref_id);
 

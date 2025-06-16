@@ -17,7 +17,11 @@ set (CMAKE_C_STANDARD 99)
 
 set (WAMR_BUILD_TARGET "RISCV64_LP64")
 
-set (toolchain_sdk_dir "/home/penglai/penglai-multilib-toolchain-install/bin/")
+if ("$ENV{PENGLAI_SDK}" STREQUAL "")
+  set (toolchain_sdk_dir "/home/penglai/penglai-multilib-toolchain-install/bin/")
+else()
+  set (toolchain_sdk_dir $ENV{PENGLAI_SDK})
+endif()
 set (CMAKE_C_COMPILER ${toolchain_sdk_dir}riscv64-unknown-linux-gnu-gcc)
 set (CMAKE_CXX_COMPILER ${toolchain_sdk_dir}riscv64-unknown-linux-gnu-g++)
 set (CMAKE_ASM_COMPILER ${toolchain_sdk_dir}riscv64-unknown-linux-gnu-g++)

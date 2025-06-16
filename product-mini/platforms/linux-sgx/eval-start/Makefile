@@ -1,8 +1,6 @@
 # Copyright (C) 2019 Intel Corporation.  All rights reserved.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
-LATTE_DIR := /home/jiax/Desktop/wasm_workspace/portmr
-
 ######## SGX SDK Settings ########
 
 SGX_SDK ?= /opt/intel/sgxsdk
@@ -254,7 +252,7 @@ $(Enclave_Name): Enclave/Enclave_t.o $(Enclave_Cpp_Objects) libvmlib.a
 	@echo "LINK =>  $@"
 
 RT_COMM_SEC := runtime_common.bin
-WASM_SEC := helloworld.wasm.id
+WASM_SEC := helloworld_latte.wasm.id
 
 $(Signed_Enclave_Name): $(Enclave_Name)
 	@$(SGX_ENCLAVE_SIGNER) signwasm -key Enclave/Enclave_private.pem -enclave $(Enclave_Name) -out $@ -config $(Enclave_Config_File) -port_id $(WASM_SEC) -rt_comm $(RT_COMM_SEC)

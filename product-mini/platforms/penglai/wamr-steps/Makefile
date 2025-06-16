@@ -1,9 +1,3 @@
-MULTILIB_TOOLCHAIN ?= /home/penglai/penglai-multilib-toolchain-install/bin/
-
-LATTE_DIR := /home/jiax/Desktop/wasm_workspace/portmr
-
-PENGLAI_SDK ?= /home/penglai/penglai-enclave/Penglai-sdk-TVM/
-
 APP = wamr-steps
 APP_C_SRCS = wamr-steps.c
 EXTRA_CLEAN = $(APP).dump

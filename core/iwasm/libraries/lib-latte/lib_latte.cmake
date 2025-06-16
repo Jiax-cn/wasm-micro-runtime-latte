@@ -16,9 +16,10 @@ else ()
   message(WARNING "TARGET TEE <${BUILD_LATTE_TEE}> not supported!")
 endif ()
 
-set (LATTE_DIR /home/jiax/Desktop/wasm_workspace/portmr)
-include_directories(${LATTE_DIR}/lib)
-link_directories(${LATTE_DIR}/tools/gen_extension_sec/build)
+if(NOT DEFINED LATTE_DIR) 
+  message(FATAL_ERROR "LATTE_DIR should be specified!")
+endif()
+include(${LATTE_DIR}/src/lib_latte.cmake)
 link_libraries(latte)
 
 set (LIB_LATTE_DIR ${CMAKE_CURRENT_LIST_DIR})

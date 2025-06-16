@@ -314,11 +314,11 @@ handle_cmd_load_module(uint64 *args, uint32 argc)
         uint8 *reference_portid = sgx_get_wasm_sec_addr();
 
         uint8 *portid_sec = NULL;
-        uint32 portid_sec_size;
+        uint32 portid_sec_size, sec_content_size;
         portid_state_t portid_state;
         portid_t portid;
 
-        parse_portid_section((uint8 *)wasm_file, wasm_file_size, &portid_sec, &portid_sec_size);
+        deserialize_portid_section((uint8 *)wasm_file, wasm_file_size, &portid_sec, &portid_sec_size, &sec_content_size);
 
         gen_portid_state((uint8 *)wasm_file, wasm_file_size-portid_sec_size, portid_state);
         derive_portid(portid_state, portid_sec, portid_sec_size, portid);
@@ -345,8 +345,7 @@ handle_cmd_load_module(uint64 *args, uint32 argc)
             }
         }
 
-        if (flag = 0)
-        {
+        if (flag == 0) {
             printf("Invalid portid section: wasm not in latte group!\n");
         }
 
